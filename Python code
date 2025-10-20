@@ -1,1 +1,39 @@
+import random
 
+print("Hello, what is your name?")
+i = input()
+print("Welcome, " + i)
+print("I want to play a game with you " + i + "\nI want you to throw this six-sided dice and the one with the highest number wins")
+
+
+play = True #keeps the loop going
+
+player_score = 0
+computer_score = 0
+
+while play:   #while loop
+    input("Press enter to roll the dice...")
+
+    # random generator number for the player
+    random_number = random.randint(1, 6)
+    print(f"You rolled a {random_number}")
+
+    # computer generate number for the computer
+    computer_number = random.randint(1, 6)
+    print(f"The computer rolled a {computer_number}")
+
+    if random_number > computer_number:
+        print("You win this round!")
+        player_score += 1
+    elif random_number < computer_number:
+        print("Computer wins this round")
+        computer_score += 1
+    else:
+        print("It's a tie!")
+
+    again = input("Do you want to play again (yes/no) ").lower()
+    if again != "yes":
+        play = False
+        print("Thanks for playing! :p")
+        
+print(f"Score: {i}: {player_score} - Computer: {computer_score}")
