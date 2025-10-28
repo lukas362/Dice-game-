@@ -8,6 +8,8 @@ print("I want to play a game with you " + i + "\nI want you to throw this six-si
 play = True #Keeps the loop going 
 
 games_played = 0
+total_wins = 0  #total_wins starts at 0
+total_loses = 0 #total_loses starts at 0
 
 #while loop: keeps the code going until the player wants to stop 
 while play:
@@ -21,18 +23,18 @@ while play:
         input("Press enter to roll the dice...")
 
         #Generates the players roll
-        random_number = random.randint(1, 6)
-        print(f"You rolled a {random_number}")
+        player_number = random.randint(1, 6)
+        print(f"You rolled a {player_number}")
 
         #Generates the computers roll
         computer_number = random.randint(1, 6)
         print(f"The computer rolled a {computer_number}")
 
         #Decides who wins or if it's a tie round for round 
-        if random_number > computer_number:
+        if player_number > computer_number:
             print("You win this round!")
             player_score += 1
-        elif random_number < computer_number:
+        elif player_number < computer_number:
             print("Computer wins this round")
             computer_score += 1
         else:
@@ -46,12 +48,10 @@ while play:
         print("The computer won the game!")   #computer wins
 
     #Ask the player if he/she/they want to play again
-    again = input("\nDo you want to play again (yes/no)? ").lower()
+    again = input("\nDo you want to play again (yes/no)? ").lower() #.lower makes it so that every input yes, YES, Yes, YeS, is accepteble. Same goes for no
     if again != "yes":
         play = False
         print("Thanks for playing! :p")
-        total_wins = 0  #total_wins starts at 0
-        total_loses = 0 #total_loses starts at 0
 
 #keeps track off how man times you've won or lost 
 if player_score > computer_score: 
