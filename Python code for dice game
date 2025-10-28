@@ -9,12 +9,11 @@ play = True #Keeps the loop going
 
 games_played = 0
 
-
-#while loop: keeps the cod going until the player wants to stop 
+#while loop: keeps the code going until the player wants to stop 
 while play:
-    player_score = 0
-    computer_score = 0
-    games_played += 1 
+    player_score = 0  #player score while playing 
+    computer_score = 0  #computer score while playing 
+    games_played += 1  #how many rounds have been played 
 
 #for loop: keeps repeating this code 5 times and after that determins who won that round 
     for round_number in range(1, 6):  # rounds 1 to 5
@@ -51,3 +50,15 @@ while play:
     if again != "yes":
         play = False
         print("Thanks for playing! :p")
+        total_wins = 0  #total_wins starts at 0
+        total_loses = 0 #total_loses starts at 0
+
+#keeps track off how man times you've won or lost 
+if player_score > computer_score: 
+    total_wins += 1
+if player_score < computer_score:
+    total_loses += 1 
+    #prints total games played, won and lost
+    print(f"Total games played {games_played}")
+    print(f"Total games won {total_wins}")
+    print(f"Total games lost {total_loses}")
